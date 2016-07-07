@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Lock Your Computer!!!</title>
+  <link rel="stylesheet" href="/bower_components/foundation/css/foundation.min.css">
+  <script src="/bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/bower_components/foundation/js/foundation.min.js" type="text/javascript" charset="utf-8" async defer></script>
+
+  <script type="text/javascript">
+    var defaultOS="mac";
+    if (navigator.appVersion.indexOf("Win")!=-1) defaultOS="win10";
+    if (navigator.appVersion.indexOf("Mac")!=-1) defaultOS="mac";
+    if (navigator.appVersion.indexOf("X11")!=-1) defaultOS="ubuntu";
+    if (navigator.appVersion.indexOf("Linux")!=-1) defaultOS="ubuntu";
+
+    var buttonSelector = '#' + defaultOS;
+    $(function() {
+      $(buttonSelector).addClass('success');
+      var interval = setInterval(function() {
+        var secondsLeft = parseInt($('#timerSeconds').html());
+        if (secondsLeft > 0) {
+          $('#timerSeconds').html(secondsLeft - 1);
+        } else {
+          window.location = $('a.success').attr('href');
+        }
+      }, 1000);
+    });
+  </script>
+
+</head>
+<body>
+  <div class="row">
+    <div id="timerNotice">
+      Redirecting in <span id="timerSeconds">10</span> seconds...</div>
+    </div>
+    <div><a href="http://lockyourcomputer.com/win7" id="win7" class="button">Win 7</a></div>
+    <div><a href="http://lockyourcomputer.com/win8" id="win8" class="button">Win 8</a></div>
+    <div><a href="http://lockyourcomputer.com/win10" id="win10" class="button">Win 10 Installing</a></div>
+    <div><a href="http://lockyourcomputer.com/vista" id="vista" class="button">Vista</a></div>
+    <div><a href="http://lockyourcomputer.com/xp" id="xp" class="button">XP</a></div>
+    <div><a href="http://lockyourcomputer.com/ubuntu" id="linux" class="button">Ubuntu</a></div>
+    <div><a href="http://lockyourcomputer.com/win98" id="win98" class="button">Win 98</a></div>
+    <div><a href="http://lockyourcomputer.com/mac" id="mac" class="button">Mac</a></div>    
+  </div>
+</body>
+</html>
